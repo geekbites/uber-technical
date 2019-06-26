@@ -4,12 +4,13 @@ library(lubridate)
 library(shiny)
 library(shinydashboard)
 library(rsconnect)
+library(scales)
 
 ######## R SHINY APP ########
 data <- read.csv("./appdata.csv", stringsAsFactors = FALSE)
 
 #Dashboard header carrying the title of the dashboard
-header <- dashboardHeader(title = 'San Francisco Bike Sharing Dashboard')  
+header <- dashboardHeader(title = 'SF Bikes')  
 
 choices_names <- unique(data$WeekDate)
   
@@ -17,8 +18,8 @@ choices_names <- unique(data$WeekDate)
 sidebar <- dashboardSidebar(
   sidebarMenu(
     menuItem('Dashboard', tabName = 'dashboard', icon = icon('dashboard')),
-    menuItem('Visit-us', icon = icon('send',lib='glyphicon'), 
-             href = 'https://www.salesforce.com'),
+    menuItem('Github Repo', icon = icon('send',lib='glyphicon'), 
+             href = 'https://github.com/geekbites/sanfran-bike'),
     selectInput('filter', 'Select a week',
                 choices = choices_names,
                 selectize=TRUE,
@@ -76,4 +77,4 @@ frow4 <- fluidRow(
 body <- dashboardBody(frow1, frow2, frow3, frow4)
 
 #completing the ui part with dashboardPage
-ui <- dashboardPage(title = 'This is my Page title', header, sidebar, body, skin='red')
+ui <- dashboardPage(title = 'San Francisco Bike Sharing', header, sidebar, body, skin='red')

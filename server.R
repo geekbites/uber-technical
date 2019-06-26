@@ -10,7 +10,7 @@ server <- function(input, output) {
       formatC(num_trips, format='d', big.mark=',')
       # formatC(value1, format='f')
       ,'Total Trips'
-      ,icon = icon('stats',lib='glyphicon')
+      ,icon = icon('bicycle')
       ,color = 'purple')
   })
   
@@ -21,7 +21,7 @@ server <- function(input, output) {
     valueBox(
       formatC(trips_per_day, format='f', digits=1)
       ,'Avg Trips Per Bike Per Day'
-      ,icon = icon('gbp',lib='glyphicon')
+      ,icon = icon('walking')
       ,color = 'green')
     
   })
@@ -32,7 +32,7 @@ server <- function(input, output) {
     valueBox(
       paste0(formatC(data * 100, format='f', digits=1), '%')
       ,'Utilization Rate'
-      ,icon = icon('menu-hamburger',lib='glyphicon')
+      ,icon = icon('stats',lib='glyphicon')
       ,color = 'yellow')
     
   })
